@@ -10,8 +10,8 @@ public class Models {
     public static RequestSpecification request;
     public static void setupHeaders() {
         request = RestAssured.given()
-                .header("Content_type", "application/json")
-                .header("Accept", "applicaiton/json")
+                .header("Content-type", "application/json")
+                .header("Accept", "application/json")
                 .header("Authorization", "Bearer 955fd928109f7612479e77cf277bbad8a3a49bffe056be0cfbb58ea57ee7c723");
     }
 
