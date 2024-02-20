@@ -1,0 +1,39 @@
+package helper;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import org.json.JSONObject;
+import static helper.Utility.generateRandomEmail;
+
+public class Models {
+    public static RequestSpecification request;
+    public static void setupHeaders() {
+        request = RestAssured.given()
+                .header("Content_type", "application/json")
+                .header("Accept", "applicaiton/json")
+                .header("Authorization", "Bearer 955fd928109f7612479e77cf277bbad8a3a49bffe056be0cfbb58ea57ee7c723");
+    }
+
+    public static Response getListUsers(String endpoint) {
+        setupHeaders();
+        return request.when().get(endpoint);
+    }
+
+    public static Response postCreateUser(String endpoint) {
+        String name = "Joshua Azarya";
+        String gender = "male";
+        String email = generateRandomEmail();
+        String status = "active";
+        JSONObject payload = new JSONObject();
+        payload.put("name", name);
+        payload.put("gender", gender);
+        payload.put("email", email);
+        payload.put("status", status);
+
+        setupHeaders();
+        return request.body(payload.toString()).when().post(endpoint);
+    }
+
+
+}
