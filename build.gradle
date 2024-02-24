@@ -29,7 +29,7 @@ test {
     systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
 }
 configurations {
-    cucumberRunTime {
+    cucumberRuntime {
         extendsFrom testImplementation
     }
 }
