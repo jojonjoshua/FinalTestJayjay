@@ -25,7 +25,7 @@ public class Utility {
     public static WebDriver driver;
     public static void startDriver() throws InterruptedException {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
@@ -33,9 +33,6 @@ public class Utility {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get("https://www.saucedemo.com/");
-        Thread.sleep(5000);
-        driver.quit();
     }
 
     public static void quitDriver(){

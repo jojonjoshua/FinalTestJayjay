@@ -4,6 +4,7 @@ import helper.Utility;
 import io.cucumber.java.*;
 
 import static helper.Utility.quitDriver;
+import static helper.Utility.startDriver;
 
 public class Hooks {
 
@@ -17,7 +18,7 @@ public class Hooks {
 
     @Before
     public void beforeTest() throws InterruptedException {
-        Utility.startDriver();
+        startDriver();
     }
 
     @After
