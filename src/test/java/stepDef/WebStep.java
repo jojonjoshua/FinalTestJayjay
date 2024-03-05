@@ -2,6 +2,7 @@ package stepDef;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import pages.WebPage;
 
 public class WebStep {
@@ -35,5 +36,25 @@ public class WebStep {
     @And("user will see icon cart in homepage")
     public void userWillSeeIconCartInHomepage() {
         webPage.assertHomePage();
+    }
+
+    @And("user will see err message {string}")
+    public void userWillSeeErrMessage(String errMesg) {
+        webPage.assertErrMsg(errMesg);
+    }
+
+    @And("user add item to cart")
+    public void userAddItemToCart() {
+        webPage.clickAddToCart();
+    }
+
+    @Then("verify cart item is match {string}")
+    public void verifyCartItemIsMatch(String cartItem) {
+        webPage.assertCartItem(cartItem);
+    }
+
+    @And("user remove item to cart")
+    public void userRemoveItemToCart() {
+        webPage.removeAddToCart();
     }
 }
