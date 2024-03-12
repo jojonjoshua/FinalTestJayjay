@@ -36,7 +36,7 @@ configurations {
     }
 }
 
-tasks.register('apiTest'){
+tasks.register('allTest'){
     dependsOn assemble, testClasses
     doLast {
         javaexec {
@@ -46,7 +46,6 @@ tasks.register('apiTest'){
                     '--plugin', 'pretty',
                     '--plugin', 'html:reports/cucumber-api-report.html',
                     '--glue', 'stepDef',
-                    '--tags', "@api",
                     'src/test/java/feature']
         }
     }
